@@ -1,0 +1,77 @@
+body {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    font-family: 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    color: #bfa37d;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.stats p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.main-button {
+    background-color: #4a4a7d;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: background 0.3s;
+}
+
+.main-button:hover {
+    background-color: #6b6b99;
+}
+
+.upgrades h2 {
+    color: #bfa37d;
+    margin-top: 30px;
+}
+
+.upgrade-card {
+    background-color: #3d3d3d;
+    border: 2px solid #555;
+    padding: 15px;
+    margin: 10px;
+    min-height: 150px;
+}
+
+.upgrade-card h3 {
+    color: #bfa37d;
+    margin: 10px 0;
+}
+
+.upgrade-card p {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.upgrade-card button {
+    background-color: #4a4a7d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#status {
+    margin-top: 20px;
+    color: #888888;
+}
