@@ -30,3 +30,189 @@ body {
 
 .header h1 {
     font-size: 24px;
+    margin: 0;
+    color: #ffd700; /* Золотой цвет для акцента */
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #ffd700; }
+    to { text-shadow: 0 0 15px #ffd700, 0 0 20px #ffd700; }
+}
+
+/* Статистика */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.stat-item {
+    background: #3a3a3a;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: scale(1.05);
+}
+
+/* Кнопка клика */
+.main-button {
+    background: linear-gradient(135deg, #4a4a7d, #6b6b99);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+    margin: 10px 0;
+}
+
+.main-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Улучшения */
+.upgrades {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 220px;
+    padding: 5px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #6b6b99 #2d2d2d;
+}
+
+.upgrades::-webkit-scrollbar {
+    width: 6px;
+}
+
+.upgrades::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.upgrades::-webkit-scrollbar-thumb {
+    background: #6b6b99;
+    border-radius: 3px;
+}
+
+.upgrades h2 {
+    font-size: 16px;
+    color: #ffd700;
+    margin: 5px 0;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* Карточки улучшений */
+.upgrade-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upgrade-card {
+    background-color: #2d2d2d;
+    border: 1px solid #4a4a7d;
+    padding: 8px 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-card:hover {
+    background-color: #3a3a3a;
+}
+
+.upgrade-info {
+    flex-grow: 1;
+}
+
+.upgrade-info h3 {
+    font-size: 14px;
+    margin: 0;
+    color: #ffd700;
+}
+
+.upgrade-info .count {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.upgrade-cost {
+    font-size: 12px;
+    color: #ffd700;
+    margin-top: 2px;
+}
+
+.upgrade-btn {
+    background: linear-gradient(135deg, #4a4a7d, #6b6b99);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease;
+    min-width: 70px;
+}
+
+.upgrade-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Статус */
+#status {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    text-align: center;
+    opacity: 0.8;
+    animation: fadeInOut 3s infinite;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* Адаптация под мобильные */
+@media (max-height: 600px) {
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .stat-item {
+        font-size: 12px;
+        min-width: 80px;
+    }
+
+    .upgrade-card h3 {
+        font-size: 12px;
+    }
+
+    .upgrade-cost {
+        font-size: 10px;
+    }
+
+    .upgrade-btn {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
