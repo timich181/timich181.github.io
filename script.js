@@ -2,13 +2,34 @@
 let products = 0;
 let passiveIncome = 0;
 
-// Улучшения
+// Улучшения (возвращены оригинальные названия)
 let upgrades = [
-    { name: 'Закурить', count: 0, baseCost: 50, power: 1 },
-    { name: 'Бахнуть', count: 0, baseCost: 100, power: 2 },
-    { name: 'Наорать', count: 0, baseCost: 500, power: 10 },
-    { name: 'СЕО', count: 0, baseCost: 2000, power: 50 }
+    { name: 'Закурить сижку', count: 0, baseCost: 50, power: 1, desc: 'Мудрость через дым' },
+    { name: 'Бахнуть пивка', count: 0, baseCost: 100, power: 2, desc: 'Инсайты под градусом' },
+    { name: 'Наорать на команду', count: 0, baseCost: 500, power: 10, desc: 'Мотивация через страх' },
+    { name: 'Врезать СЕО', count: 0, baseCost: 2000, power: 50, desc: 'Оптимизация хаоса' }
 ];
+
+// Загрузка сохранённого прогресса
+function loadGame() {
+    const saved = localStorage.getItem('lenaGame');
+    if (saved) {
+        const data = JSON.parse(saved);
+        products = data.products;
+        passiveIncome = data.passiveIncome;
+        upgrades = data.upgrades;
+    }
+}
+
+// Сохранение прогресса
+function saveGame() {
+    const data = {
+        products,
+        passiveIncome,
+        upgrades
+    };
+    localStorage.setItem('lenaGame', JSON.stringify(data));
+}
 
 // Ссылки на DOM-элементы
 const productCountEl = document.getElementById('product-count-large');
@@ -51,6 +72,7 @@ function initUpgrades() {
 clickBtnEl.addEventListener('click', () => {
     products += 1; // Фиксированная сила = 1
     updateDisplay();
+    saveGame();
 });
 
 // Покупка улучшения
@@ -64,6 +86,7 @@ function buyUpgrade(index) {
         updatePassiveIncome();
         updateDisplay();
         initUpgrades();
+        saveGame();
     }
 }
 
@@ -75,16 +98,18 @@ function updatePassiveIncome() {
 
 // Обновление интерфейса
 function updateDisplay() {
-    productCountEl.textContent = `📦 ${Math.floor(products)}`;
+    productCountEl.textContent = `${Math.floor(products)}`;
 }
 
 // Тик пассивного дохода
 setInterval(() => {
     products += passiveIncome;
     updateDisplay();
+    saveGame();
 }, 1000);
 
 // Инициализация игры
+loadGame(); // Загружаем сохранённый прогресс
 initUpgrades();
 updatePassiveIncome();
 updateDisplay();
