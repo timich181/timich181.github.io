@@ -40,12 +40,20 @@ body {
     color: #aaa;
 }
 
+/* Надпись "продуктов создано" */
+.product-label {
+    font-size: 16px;
+    text-align: center;
+    color: #888;
+    margin-top: 10px;
+}
+
 /* Крупное отображение продуктов */
 .product-display {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
-    margin: 15px 0;
+    margin: 10px 0;
     color: #ffd700;
     animation: fadeIn 0.5s ease-in-out;
 }
@@ -78,7 +86,7 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Улучшения (без скроллинга) */
+/* Улучшения */
 .upgrades {
     flex-grow: 1;
     display: flex;
@@ -154,7 +162,7 @@ body {
 /* Адаптация под мобильные */
 @media (max-height: 600px) {
     .product-display {
-        font-size: 28px;
+        font-size: 32px;
     }
 
     .income-text {
