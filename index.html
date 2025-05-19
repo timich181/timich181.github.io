@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>👩💻 Симулятор Лены</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="container">
+        <!-- Заголовок -->
         <div class="header">
             <h1>👩💻 Симулятор Лены</h1>
             <p>Фарм продуктов для IT-принцесс</p>
         </div>
 
+        <!-- Статистика -->
         <div class="stats">
-            <p id="product-count">📦 Продукты: 0</p>
-            <p id="click-power">⚡ Сила создания: 1</p>
-            <p id="passive-income">🧠 Автоматический доход: 0 продуктов/сек</p>
+            <div class="stat-item" id="product-count">📦 Продукты: 0</div>
+            <div class="stat-item" id="click-power">⚡ Сила: 1</div>
+            <div class="stat-item" id="passive-income">🧠 Доход: 0</div>
         </div>
 
+        <!-- Кнопка клика -->
         <button id="click-btn" class="main-button">✨ Создать продукт</button>
 
+        <!-- Улучшения -->
         <div class="upgrades">
-            <h2>🛠️ Профессиональные навыки</h2>
-            <div id="upgrade-grid"></div>
+            <h2>🛠️ Улучшения</h2>
+            <div class="upgrade-grid" id="upgrade-grid"></div>
         </div>
 
+        <!-- Статус -->
         <p id="status">📢 Лена всегда знает, как добиться результата!</p>
     </div>
 
+    <!-- Подключаем скрипты -->
     <script src="script.js"></script>
 </body>
 </html>
