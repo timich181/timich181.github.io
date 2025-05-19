@@ -12,6 +12,9 @@ const productCount = document.getElementById('product-count');
 const clickPowerDisplay = document.getElementById('click-power');
 const passiveIncomeDisplay = document.getElementById('passive-income');
 const upgradeGrid = document.getElementById('upgrade-grid');
+upgradeGrid.style.display = 'flex';
+upgradeGrid.style.flexDirection = 'column';
+upgradeGrid.style.gap = '15px';
 const statusText = document.getElementById('status');
 
 // Инициализация улучшений
