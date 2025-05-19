@@ -1,23 +1,20 @@
 // Игровые переменные
 let products = 0;
-let clickPower = 1;
 let passiveIncome = 0;
 
 // Улучшения
 let upgrades = [
-    { name: 'Закурить сижку', count: 0, baseCost: 50, power: 1 },
-    { name: 'Бахнуть пивка', count: 0, baseCost: 100, power: 2 },
-    { name: 'Наорать на команду', count: 0, baseCost: 500, power: 10 },
-    { name: 'Уебать СЕО', count: 0, baseCost: 2000, power: 50 }
+    { name: 'Закурить', count: 0, baseCost: 50, power: 1 },
+    { name: 'Бахнуть', count: 0, baseCost: 100, power: 2 },
+    { name: 'Наорать', count: 0, baseCost: 500, power: 10 },
+    { name: 'СЕО', count: 0, baseCost: 2000, power: 50 }
 ];
 
 // Ссылки на DOM-элементы
-const productCountEl = document.getElementById('product-count');
-const clickPowerEl = document.getElementById('click-power');
-const passiveIncomeEl = document.getElementById('passive-income');
-const upgradeGridEl = document.getElementById('upgrade-grid');
-const statusTextEl = document.getElementById('status');
+const productCountEl = document.getElementById('product-count-large');
+const incomeTextEl = document.getElementById('income-text');
 const clickBtnEl = document.getElementById('click-btn');
+const upgradeGridEl = document.getElementById('upgrade-grid');
 
 // Инициализация улучшений
 function initUpgrades() {
@@ -32,16 +29,11 @@ function initUpgrades() {
         const name = document.createElement('h3');
         name.textContent = upgrade.name;
 
-        const count = document.createElement('div');
-        count.className = 'count';
-        count.textContent = `x${upgrade.count}`;
-
         const cost = document.createElement('div');
         cost.className = 'upgrade-cost';
         cost.textContent = `${upgrade.baseCost} 💼`;
 
         info.appendChild(name);
-        info.appendChild(count);
         info.appendChild(cost);
 
         const btn = document.createElement('button');
@@ -57,9 +49,8 @@ function initUpgrades() {
 
 // Обработка клика
 clickBtnEl.addEventListener('click', () => {
-    products += clickPower;
+    products += 1; // Фиксированная сила = 1
     updateDisplay();
-    showStatus(`✨ +${clickPower} продуктов!`, 1000);
 });
 
 // Покупка улучшения
@@ -73,22 +64,18 @@ function buyUpgrade(index) {
         updatePassiveIncome();
         updateDisplay();
         initUpgrades();
-        showStatus(`👩💻 Куплен ${upgrade.name}`, 1500);
-    } else {
-        showStatus(`❌ Недостаточно для ${upgrade.name}`, 1500);
     }
 }
 
 // Обновление пассивного дохода
 function updatePassiveIncome() {
     passiveIncome = upgrades.reduce((sum, u) => sum + u.count * u.power, 0);
-    passiveIncomeEl.textContent = `🧠 Доход: ${passiveIncome}`;
+    incomeTextEl.textContent = `+${passiveIncome}/сек`;
 }
 
 // Обновление интерфейса
 function updateDisplay() {
-    productCountEl.textContent = `📦 Продукты: ${Math.floor(products)}`;
-    clickPowerEl.textContent = `⚡ Сила: ${clickPower}`;
+    productCountEl.textContent = `📦 ${Math.floor(products)}`;
 }
 
 // Тик пассивного дохода
@@ -96,14 +83,6 @@ setInterval(() => {
     products += passiveIncome;
     updateDisplay();
 }, 1000);
-
-// Статус
-function showStatus(message, duration) {
-    statusTextEl.textContent = message;
-    setTimeout(() => {
-        statusTextEl.textContent = '📢 Лена всегда знает, как добиться результата!';
-    }, duration);
-}
 
 // Инициализация игры
 initUpgrades();
